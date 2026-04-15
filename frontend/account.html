@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE | My Orders</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-customer-auth="true">
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a href="account.html">My Orders</a>
+          <button
+            class="button-secondary"
+            type="button"
+            data-auth-logout
+            data-auth-scope="customer"
+          >
+            Log Out
+          </button>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="customer-account-page">
+      <section class="hero">
+        <div class="hero-card account-hero-card">
+          <div class="eyebrow">My Orders</div>
+          <h1 id="account-name">Loading your profile...</h1>
+          <p>Track recent orders and pickup details in one place.</p>
+          <p id="account-username">@customer</p>
+          <p id="account-email">customer@example.com</p>
+          <div class="button-row margin-top-lg account-hero-actions">
+            <a class="button" href="shop.html">Continue Shopping</a>
+            <a class="button-secondary" href="edit-account.html">
+              Edit Account
+            </a>
+            <button
+              class="button-danger"
+              id="account-delete-button"
+              type="button"
+            >
+              Delete Account
+            </button>
+            <button
+              class="button-secondary"
+              type="button"
+              data-auth-logout
+              data-auth-scope="customer"
+            >
+              Sign Out
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Orders placed</strong>
+            <p id="account-order-count">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Latest order</strong>
+            <p id="account-last-order">No orders yet</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Saved favorites</strong>
+            <p id="account-wishlist-count">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Reviews posted</strong>
+            <p id="account-review-count">0</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="account-message" class="message"></div>
+
+      <section class="panel margin-bottom-md">
+        <div class="panel-header">
+          <div>
+            <h2>Saved Favorites</h2>
+            <p>Quick access to products you want to revisit or reorder later.</p>
+          </div>
+          <a class="button-secondary" href="shop.html">Browse More</a>
+        </div>
+        <div id="account-wishlist" class="wishlist-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Order History</h2>
+            <p>
+              See what you bought, when you placed it, and how much it cost.
+            </p>
+          </div>
+        </div>
+        <div id="orders-list" class="order-list"></div>
+        <div id="account-orders-pagination" class="pagination-host"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <div
+      class="account-delete-backdrop"
+      id="account-delete-backdrop"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="account-delete-modal"
+      id="account-delete-modal"
+      aria-hidden="true"
+      aria-modal="true"
+      aria-labelledby="account-delete-title"
+      role="dialog"
+    >
+      <div class="account-delete-modal-card">
+        <div class="account-delete-modal-header">
+          <div>
+            <p class="eyebrow">Delete Account</p>
+            <h2 id="account-delete-title">Delete your account?</h2>
+          </div>
+          <button
+            class="link-button"
+            id="account-delete-close"
+            type="button"
+            aria-label="Close delete confirmation"
+          >
+            Close
+          </button>
+        </div>
+        <div class="product-modal-content">
+          <p>
+            Your customer account will be deleted right away, but your order
+            records will stay in our system for 2 years before database
+            cleanup.
+          </p>
+          <div class="account-delete-retention">
+            <strong>Orders kept until</strong>
+            <p id="account-delete-retention-date">Loading retention date...</p>
+            <p id="account-delete-retention-countdown">2 years remaining</p>
+          </div>
+          <div class="button-row">
+            <button
+              class="button-danger"
+              id="account-delete-confirm"
+              type="button"
+            >
+              Delete Account
+            </button>
+            <button
+              class="button-secondary"
+              id="account-delete-cancel"
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/customer.js?v=20260323za"></script>
+  </body>
+</html>

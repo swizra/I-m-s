@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE | Edit Account</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-customer-auth="true">
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a href="account.html">My Orders</a>
+          <a href="edit-account.html">Edit Account</a>
+          <button
+            class="button-secondary"
+            type="button"
+            data-auth-logout
+            data-auth-scope="customer"
+          >
+            Log Out
+          </button>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="customer-account-edit-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Account Settings</div>
+          <h1 class="hero-title-compact">Edit your profile.</h1>
+          <p>Update your customer name, @tag, and email from a dedicated settings page.</p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Customer tag</strong>
+            <p>Your username appears across your account and review activity.</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Return anytime</strong>
+            <p>After saving, you’ll go straight back to your account overview.</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="account-message" class="message"></div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Profile Details</h2>
+            <p>Keep your customer information current for orders and account access.</p>
+          </div>
+        </div>
+        <form id="account-profile-form" class="content-grid">
+          <div class="field">
+            <label for="account-full-name-input">Full name</label>
+            <input id="account-full-name-input" type="text" maxlength="120" required />
+          </div>
+          <div class="field">
+            <label for="account-username-input">Username / @tag</label>
+            <input id="account-username-input" type="text" maxlength="100" required />
+          </div>
+          <div class="field">
+            <label for="account-email-input">Email</label>
+            <input id="account-email-input" type="email" maxlength="160" required />
+          </div>
+          <div class="button-row">
+            <button class="button" type="submit">Save Account</button>
+            <a class="button-secondary" href="account.html">Back to My Orders</a>
+          </div>
+        </form>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/customer.js?v=20260323za"></script>
+  </body>
+</html>

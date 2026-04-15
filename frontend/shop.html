@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE | Store</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324as" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Home</a>
+          <a href="#catalog-section">Catalog</a>
+          <a class="customer-account-link" href="customer-auth.html"
+            >Create Account</a
+          >
+          <a href="login.html">Admin</a>
+          <a href="#cart-drawer" id="cart-open-button">Cart (0)</a>
+        </nav>
+
+        <div class="mobile-header-actions">
+          <button class="icon-button mobile-search-toggle" type="button" aria-label="Open search">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="5.5"></circle>
+              <path d="M15.5 15.5L20 20"></path>
+            </svg>
+          </button>
+
+          <button class="icon-button mobile-cart-toggle" id="mobile-cart-open-button" type="button" aria-label="Open cart">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M8 9V7.75a4 4 0 0 1 8 0V9"></path>
+              <path d="M6.5 9H17.5L16.75 18H7.25L6.5 9Z"></path>
+            </svg>
+          </button>
+
+          <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
+            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="line line-top" d="M7 9H17"></path>
+              <path class="line line-middle" d="M7 12H17"></path>
+              <path class="line line-bottom" d="M7 15H17"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell">
+      <section class="hero shop-hero">
+        <div class="hero-card hero-card-shop">
+          <div class="eyebrow">Store</div>
+          <h1>Self-Care Essentials.</h1>
+          <p>
+            Browse shampoos, skin care, bath rituals, and cozy wellness picks
+            in one calm storefront. Inventory refreshes automatically, so the
+            catalog stays close to the latest stock.
+          </p>
+          <div class="button-row margin-top-lg">
+            <a class="button" href="#catalog-section">Browse Products</a>
+            <a
+              class="button-secondary customer-account-link"
+              href="customer-auth.html"
+              >Create Account</a
+            >
+          </div>
+          <p class="hint margin-top-md" data-customer-greeting>
+            Sign in to place orders and track them later.
+          </p>
+        </div>
+
+        <div class="hero-aside">
+          <div class="mini-panel feature-panel">
+            <strong>Fresh picks</strong>
+            <p>
+              Hair care, body care, and everyday ritual products picked for a
+              gentle self-care routine.
+            </p>
+          </div>
+          <div class="mini-panel feature-panel">
+            <strong>Live stock</strong>
+            <p>
+              Last refresh:
+              <span id="last-updated">Waiting for the first update...</span>
+            </p>
+          </div>
+          <div class="mini-panel feature-panel">
+            <strong>Customer account</strong>
+            <p>
+              Create an account to check out faster and review your order
+              history anytime.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Shop by Section</h2>
+            <p>Use the quick category buttons or the filters below.</p>
+          </div>
+        </div>
+        <div id="category-pills" class="pill-row"></div>
+      </section>
+
+      <section class="panel margin-top-md" id="catalog-section">
+        <div class="panel-header">
+          <div>
+            <h2>Catalog</h2>
+            <p>Search, filter, sort, and add products directly to your cart.</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="field">
+            <label for="search-input">Search products</label>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Search for shampoo, serum, lotion ..."
+            />
+          </div>
+
+          <div class="field">
+            <label for="category-filter">Category</label>
+            <select id="category-filter">
+              <option value="">All categories</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="sort-filter">Sort</label>
+            <select id="sort-filter">
+              <option value="name">Name (A-Z)</option>
+              <option value="price-asc">Price (Low to High)</option>
+              <option value="price-desc">Price (High to Low)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="shop-message" class="message"></div>
+        <div id="shop-product-grid" class="product-grid margin-top-md"></div>
+        <div id="shop-pagination" class="pagination-host"></div>
+      </section>
+    </main>
+
+    <div class="product-modal-backdrop" id="product-modal-backdrop"></div>
+    <section
+      class="product-modal"
+      id="product-modal"
+      aria-hidden="true"
+      aria-modal="true"
+      aria-labelledby="product-modal-title"
+      role="dialog"
+    >
+      <div class="product-modal-card">
+        <div class="product-modal-header">
+          <div>
+            <span class="eyebrow">Product Details</span>
+            <h2 id="product-modal-title">Loading product...</h2>
+          </div>
+          <button class="link-button" id="product-modal-close" type="button">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span>
+            <span>Close</span>
+          </button>
+        </div>
+        <div id="product-modal-content" class="product-modal-content"></div>
+      </div>
+    </section>
+
+    <div class="drawer-backdrop" id="cart-backdrop"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+      <div class="cart-header">
+        <div>
+          <span class="eyebrow">Your Cart</span>
+          <h2>KEFE Checkout</h2>
+        </div>
+        <button class="link-button" id="cart-close-button" type="button">
+          <span class="material-symbols-outlined" aria-hidden="true">close</span>
+          <span>Close</span>
+        </button>
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">CHF 0.00</strong>
+        </div>
+
+        <form id="checkout-form" class="content-grid">
+          <div class="field">
+            <label for="checkout-delivery-address"
+              >Pickup or delivery details</label
+            >
+            <input
+              id="checkout-delivery-address"
+              type="text"
+              placeholder="Home address or reception details"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="checkout-note">Order note</label>
+            <textarea
+              id="checkout-note"
+              maxlength="300"
+              placeholder="Any delivery timing, gift note, or care request?"
+            ></textarea>
+          </div>
+
+          <button class="button" id="checkout-button" type="submit">
+            Place Order
+          </button>
+        </form>
+
+        <p class="hint">
+          You need a customer account to check out. Use the account page to
+          review placed orders afterward.
+        </p>
+        <a
+          class="button-secondary customer-account-link"
+          href="customer-auth.html"
+          >My Orders</a
+        >
+        <div id="cart-message" class="message"></div>
+      </div>
+    </aside>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323k"></script>
+    <script src="js/site.js?v=20260324ak"></script>
+    <script src="js/shop.js?v=20260324c"></script>
+  </body>
+</html>

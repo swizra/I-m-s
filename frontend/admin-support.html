@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE Admin | Support</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-support.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">Log Out</button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="admin-support-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Admin</div>
+          <h1>Customer support inbox.</h1>
+          <p>
+            Review new help messages, continue live customer conversations, and keep support
+            history connected to each account.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Open conversations</strong>
+            <p id="admin-support-open-count">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Workflow</strong>
+            <p>Reply to customers here and update conversation status as the issue progresses.</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="admin-support-message" class="message"></div>
+
+      <section class="content-grid two-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Inbox</h2>
+              <p>Newest conversations appear first.</p>
+            </div>
+          </div>
+          <div id="admin-support-list" class="conversation-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Conversation</h2>
+              <p>Reply as the KEFE support team and keep the thread moving.</p>
+            </div>
+          </div>
+          <div id="admin-support-detail"></div>
+          <form id="admin-support-reply-form" class="content-grid margin-top-md">
+            <div class="field">
+              <label for="admin-support-reply-message">Reply</label>
+              <textarea id="admin-support-reply-message" rows="5" placeholder="Write your reply to the customer."></textarea>
+            </div>
+            <div class="button-row">
+              <button class="button" type="submit">Send Reply</button>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324d"></script>
+  </body>
+</html>

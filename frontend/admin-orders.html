@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KEFE Admin | Orders</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-dashboard.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">
+            Log Out
+          </button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="orders-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Orders</div>
+          <h1>Manage order flow from one place.</h1>
+          <p>
+            Track customer pickups, inspect order details, and move orders
+            through the fulfillment steps without leaving the admin area.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Order workflow</strong>
+            <p>
+              Move orders from placed to preparing, then pickup-ready, and
+              finally completed when collected.
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Admin control</strong>
+            <p>
+              Search, filter, review customer details, and update status from
+              the same screen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div id="orders-message" class="message"></div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Order Overview</h2>
+            <p>Quick counters for fulfillment and customer activity.</p>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <article class="stats-card">
+            <span>Total Orders</span>
+            <strong id="orders-total-count">0</strong>
+          </article>
+          <article class="stats-card">
+            <span>New Orders</span>
+            <strong id="orders-placed-count">0</strong>
+          </article>
+          <article class="stats-card">
+            <span>In Progress</span>
+            <strong id="orders-active-count">0</strong>
+          </article>
+          <article class="stats-card">
+            <span>Completed</span>
+            <strong id="orders-completed-count">0</strong>
+          </article>
+          <article class="stats-card">
+            <span>Total Revenue</span>
+            <strong id="orders-revenue-total">CHF 0.00</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-grid two-column orders-layout margin-top-md">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>All Orders</h2>
+              <p>Search by order number, customer, or current status.</p>
+            </div>
+          </div>
+
+          <form id="order-filters-form" class="toolbar margin-bottom-md">
+            <div class="field">
+              <label for="orders-search">Search order</label>
+              <input
+                id="orders-search"
+                type="search"
+                placeholder="Order number or customer"
+              />
+            </div>
+            <div class="field">
+              <label for="orders-filter-status">Status</label>
+              <select id="orders-filter-status">
+                <option value="">All statuses</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="orders-filter-range">Time range</label>
+              <select id="orders-filter-range">
+                <option value="">All time</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="quarter">Quarter</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <div class="field orders-custom-range is-hidden" id="orders-from-field">
+              <label for="orders-filter-from">From</label>
+              <input id="orders-filter-from" type="date" />
+            </div>
+            <div class="field orders-custom-range is-hidden" id="orders-to-field">
+              <label for="orders-filter-to">To</label>
+              <input id="orders-filter-to" type="date" />
+            </div>
+            <div class="field align-end">
+              <button
+                class="button-secondary"
+                id="orders-filters-reset"
+                type="button"
+              >
+                Reset Filters
+              </button>
+            </div>
+          </form>
+
+          <p class="hint margin-bottom-md" id="orders-filter-summary">
+            Showing all orders.
+          </p>
+
+          <div class="table-wrap">
+            <table id="orders-table" class="aligned-admin-table">
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Placed At</th>
+                  <th>Manage</th>
+                </tr>
+              </thead>
+              <tbody id="orders-table-body"></tbody>
+            </table>
+          </div>
+          <div id="orders-pagination" class="pagination-host"></div>
+        </article>
+
+        <article class="panel detail-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Order Details</h2>
+              <p>Inspect the selected order and update its current status.</p>
+            </div>
+          </div>
+          <div id="order-detail-content" class="order-detail-content"></div>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/admin.js?v=20260323z"></script>
+  </body>
+</html>

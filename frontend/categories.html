@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KEFE Admin | Categories</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="admin-dashboard.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">
+            Log Out
+          </button>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="categories-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Categories</div>
+          <h1>Keep the catalog organized.</h1>
+          <p>
+            Clear category names make browsing easier for customers and faster
+            for the admin team.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Delete safely</strong>
+            <p>
+              A category can only be deleted when no products are still assigned
+              to it.
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Keep it simple</strong>
+            <p>
+              Short names and clear descriptions keep filters and admin tables
+              easy to scan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid two-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Create Category</h2>
+              <p>Add categories for the catalog and public filter dropdown.</p>
+            </div>
+          </div>
+
+          <form id="category-form" class="content-grid">
+            <div class="field">
+              <label for="category-name">Category name</label>
+              <input id="category-name" type="text" maxlength="100" required />
+            </div>
+
+            <div class="field">
+              <label for="category-description">Description</label>
+              <textarea
+                id="category-description"
+                maxlength="500"
+                required
+              ></textarea>
+            </div>
+
+            <div class="button-row">
+              <button class="button" type="submit">Create Category</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Category Notes</h2>
+              <p>
+                Suggested self-care categories are Hair Care, Skin Care, Bath &
+                Body, and Wellness Rituals.
+              </p>
+            </div>
+          </div>
+
+          <ul class="list-plain">
+            <li>Use short names so cards and tables stay readable.</li>
+            <li>
+              Descriptions help explain category purpose in Swagger and admin
+              views.
+            </li>
+            <li>
+              Editing opens a dedicated category editor from the actions column
+              below.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <div id="categories-message" class="message"></div>
+
+      <section class="panel margin-top-md">
+        <div class="panel-header">
+          <div>
+            <h2>All Categories</h2>
+            <p>Current categories and their number of assigned products.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="categories-table" class="aligned-admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Products</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="categories-table-body"></tbody>
+          </table>
+        </div>
+        <div id="categories-pagination" class="pagination-host"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323h"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/admin.js?v=20260323z"></script>
+  </body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE Admin | Products</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-dashboard.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="product-form.html">Add Product</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">
+            Log Out
+          </button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="products-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Catalog</div>
+          <h1>Products and stock.</h1>
+          <p>
+            Update what customers see, keep stock accurate, and manage the live
+            catalog from one place.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Business rules</strong>
+            <p>
+              Prices must stay above zero, stock cannot be negative, and every
+              stock adjustment creates an inventory log entry automatically.
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Fast workflow</strong>
+            <p>
+              Add products, adjust quantities, and return here for edits and
+              cleanup.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div id="products-message" class="message"></div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>All Products</h2>
+            <p>Protected admin list with availability overview.</p>
+          </div>
+          <a class="button" href="product-form.html">Create Product</a>
+        </div>
+        <form id="product-filters-form" class="toolbar margin-bottom-md">
+          <div class="field">
+            <label for="products-search">Search product</label>
+            <input
+              id="products-search"
+              type="search"
+              placeholder="Search by name, SKU, or barcode"
+            />
+          </div>
+          <div class="field">
+            <label for="products-filter-category">Category</label>
+            <select id="products-filter-category">
+              <option value="">All categories</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="products-filter-min-price">Min price (CHF)</label>
+            <input
+              id="products-filter-min-price"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="0.00"
+            />
+          </div>
+          <div class="field">
+            <label for="products-filter-max-price">Max price (CHF)</label>
+            <input
+              id="products-filter-max-price"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="999.00"
+            />
+          </div>
+          <div class="field align-end">
+            <button
+              class="button-secondary"
+              id="products-filters-reset"
+              type="button"
+            >
+              Reset Filters
+            </button>
+          </div>
+        </form>
+        <div class="product-quick-filters margin-bottom-md" aria-label="Product quick filters">
+          <span class="product-quick-filters-label">Quick filters</span>
+          <button class="product-quick-filter-button is-active" type="button" data-product-quick-filter="all" aria-pressed="true">
+            All
+          </button>
+          <button class="product-quick-filter-button" type="button" data-product-quick-filter="low-stock" aria-pressed="false">
+            Low stock
+          </button>
+          <button class="product-quick-filter-button" type="button" data-product-quick-filter="out-of-stock" aria-pressed="false">
+            Out of stock
+          </button>
+          <button class="product-quick-filter-button" type="button" data-product-quick-filter="in-stock" aria-pressed="false">
+            In stock
+          </button>
+          <button class="product-quick-filter-button" type="button" data-product-quick-filter="unavailable" aria-pressed="false">
+            Unavailable
+          </button>
+        </div>
+        <p class="hint margin-bottom-md" id="products-filter-summary">
+          Showing all products.
+        </p>
+        <div class="table-wrap">
+          <table id="products-table" class="aligned-admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Restock At</th>
+                <th>Status</th>
+                <th>Active</th>
+                <th>Availability</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body"></tbody>
+          </table>
+        </div>
+        <div id="products-pagination" class="pagination-host"></div>
+      </section>
+
+      <div id="product-preview-backdrop" class="admin-modal-backdrop"></div>
+      <section
+        id="product-preview-modal"
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="product-preview-title"
+      >
+        <div class="admin-modal-card product-preview-modal-card">
+          <div class="admin-modal-header">
+            <div>
+              <div class="eyebrow">Product</div>
+              <h2 id="product-preview-title">Preview</h2>
+            </div>
+            <button id="product-preview-close" class="button-secondary" type="button">
+              Close
+            </button>
+          </div>
+          <div id="product-preview-content" class="product-preview-stack"></div>
+        </div>
+      </section>
+
+      <section class="panel margin-top-md">
+        <div class="panel-header">
+          <div>
+            <h2>Update Stock</h2>
+            <p>
+              Set a new stock quantity and optionally store a note for the
+              inventory log.
+            </p>
+          </div>
+        </div>
+
+        <form id="stock-update-form" class="toolbar">
+          <div class="field">
+            <label for="stock-product-id">Product</label>
+            <select id="stock-product-id" required></select>
+          </div>
+          <div class="field">
+            <label for="stock-new-quantity">New stock quantity</label>
+            <input
+              id="stock-new-quantity"
+              type="number"
+              min="0"
+              placeholder="Enter new stock quantity"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="stock-note">Log note</label>
+            <input
+              id="stock-note"
+              type="text"
+              maxlength="250"
+              placeholder="Optional note for the stock change"
+            />
+          </div>
+          <div class="field align-end">
+            <button class="button" type="submit">Save Stock Change</button>
+          </div>
+        </form>
+
+        <div id="stock-message" class="message"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323h"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/admin.js?v=20260324f"></script>
+  </body>
+</html>

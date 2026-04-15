@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <meta
+      name="description"
+      content="Review KEFE delivery tracking guidance, shipping statuses, address changes, and delayed parcel support."
+    />
+    <title>KEFE | Delivery Tracking</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a class="customer-account-link" href="account.html">My Orders</a>
+          <a class="customer-auth-link" href="customer-auth.html">Customer Login</a>
+          <a href="login.html">Admin</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="delivery-tracking-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Support</div>
+          <h1>Delivery Tracking</h1>
+          <p>
+            Track your live order data, search by order number, and review the current status
+            of every order linked to your customer account.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Orders in progress</strong>
+            <p id="tracking-active-count">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Latest status</strong>
+            <p id="tracking-latest-status">Loading...</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="tracking-message" class="message"></div>
+      <div id="tracking-auth-state"></div>
+
+      <section id="tracking-workspace" class="is-hidden">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Search Your Orders</h2>
+              <p>Use an order number to focus on one shipment, or leave the field empty to show every order.</p>
+            </div>
+          </div>
+          <form id="tracking-search-form" class="toolbar">
+            <div class="field">
+              <label for="tracking-order-number">Order number</label>
+              <input id="tracking-order-number" type="search" placeholder="KEFE-20260324-..." />
+            </div>
+            <div class="field align-end">
+              <button class="button" type="submit">Track Order</button>
+            </div>
+          </form>
+        </article>
+
+        <section class="panel margin-top-md">
+          <div class="panel-header">
+            <div>
+              <h2>Live Order Tracking</h2>
+              <p>Delivery tracking is powered by the real order data stored in your customer account.</p>
+            </div>
+            <a class="button-secondary" href="account.html">Open My Orders</a>
+          </div>
+          <div id="tracking-orders-list" class="tracking-list"></div>
+        </section>
+      </section>
+
+      <section class="legal-stack margin-top-md">
+        <article class="panel">
+          <h2>How tracking works</h2>
+          <p>
+            Status changes appear here as soon as the order record is updated. If an order is
+            still listed as placed or preparing, it usually means the fulfillment process is
+            still active and the next event has not been posted yet.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>Need help with a shipment?</h2>
+          <p>
+            If the data here looks wrong or stops updating, use the Help Center to send a
+            delivery message to support. The team can review the order and respond in the same
+            conversation thread.
+          </p>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323q"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324a"></script>
+  </body>
+</html>

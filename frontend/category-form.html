@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KEFE Admin | Category</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-dashboard.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">
+            Log Out
+          </button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="category-form-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Category</div>
+          <h1 id="category-form-title">Create Category</h1>
+          <p id="category-form-subtitle">
+            Add a clean category name and description so products stay easy to
+            browse in both the shop and admin views.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Simple names</strong>
+            <p>
+              Short, clear names make filters, cards, and tables easier to scan
+              at a glance.
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Helpful descriptions</strong>
+            <p>
+              Use the description to explain what belongs in the category for
+              staff teams and customers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <form id="category-detail-form" class="content-grid">
+          <div class="field">
+            <label for="category-detail-name">Category name</label>
+            <input
+              id="category-detail-name"
+              type="text"
+              maxlength="100"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="category-detail-description">Description</label>
+            <textarea
+              id="category-detail-description"
+              maxlength="500"
+              required
+            ></textarea>
+          </div>
+
+          <div class="button-row">
+            <button class="button" type="submit">Save Category</button>
+            <a class="button-secondary" href="categories.html">Cancel</a>
+          </div>
+        </form>
+
+        <div id="category-form-message" class="message"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323h"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/admin.js?v=20260323z"></script>
+  </body>
+</html>

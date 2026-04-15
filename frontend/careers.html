@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <meta
+      name="description"
+      content="Explore careers at KEFE across customer experience, operations, merchandising, and digital product work."
+    />
+    <title>KEFE | Careers</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a class="customer-account-link" href="account.html">My Orders</a>
+          <a class="customer-auth-link" href="customer-auth.html">Customer Login</a>
+          <a href="login.html">Admin</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="careers-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Company</div>
+          <h1>Careers at KEFE</h1>
+          <p>
+            Explore live openings, read the role details, and apply directly from your customer
+            account. Each application is tracked against one specific vacancy so hiring stays
+            clear for both applicants and the KEFE team.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Careers contact</strong>
+            <p>careers@kefe.ch</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Open positions</strong>
+            <p id="career-open-count">0</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="career-application-message" class="message"></div>
+
+      <section class="content-grid two-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Current Vacancies</h2>
+              <p>These roles are powered by the live careers API and maintained by the staff team.</p>
+            </div>
+          </div>
+          <div id="career-vacancies" class="vacancy-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Apply with Your Customer Account</h2>
+              <p id="career-application-summary">Applications are linked to your account and limited to one per vacancy.</p>
+            </div>
+          </div>
+          <div id="career-auth-prompt" class="empty-state is-hidden">
+            Sign in with your customer account before applying.
+            <div class="button-row margin-top-md">
+              <a class="button" href="customer-auth.html?next=careers.html">Customer Login</a>
+            </div>
+          </div>
+          <div id="career-application-panel">
+            <form id="career-application-form" class="content-grid is-hidden">
+              <div class="field">
+                <label for="career-phone">Phone</label>
+                <input id="career-phone" type="tel" placeholder="+41 79 123 45 67" required />
+              </div>
+              <div class="field">
+                <label for="career-city">City</label>
+                <input id="career-city" type="text" placeholder="Basel" required />
+              </div>
+              <div class="field">
+                <label for="career-portfolio">LinkedIn or portfolio URL</label>
+                <input id="career-portfolio" type="url" placeholder="https://www.linkedin.com/in/your-profile" />
+              </div>
+              <div class="field">
+                <label for="career-cover-letter">Why this role?</label>
+                <textarea id="career-cover-letter" rows="12" data-auto-resize="false" placeholder="Tell us why you want to join KEFE and what you would bring to the role." required></textarea>
+              </div>
+              <div class="button-row">
+                <button class="button" type="submit">Send Application</button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel margin-top-md">
+        <div class="panel-header">
+          <div>
+            <h2>Your Applications</h2>
+            <p>Review the live status of applications already linked to your customer profile.</p>
+          </div>
+        </div>
+        <div id="career-applications" class="vacancy-list"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323q"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324b"></script>
+  </body>
+</html>

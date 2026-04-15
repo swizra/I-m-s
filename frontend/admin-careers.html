@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE Staff | Careers</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN,HR">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-careers.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html" data-staff-link-roles="ADMIN">Dashboard</a>
+          <a href="admin-orders.html" data-staff-link-roles="ADMIN">Orders</a>
+          <a href="admin-products.html" data-staff-link-roles="ADMIN">Products</a>
+          <a href="categories.html" data-staff-link-roles="ADMIN">Categories</a>
+          <a href="admin-support.html" data-staff-link-roles="ADMIN">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">Log Out</button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="staff-careers-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Staff</div>
+          <h1>Manage careers and applications.</h1>
+          <p>
+            Create live vacancies, keep role details current, and review applications from one
+            dedicated staff workspace.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Open vacancies</strong>
+            <p id="staff-career-open-count">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Total applications</strong>
+            <p id="staff-career-application-count">0</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="staff-career-message" class="message"></div>
+
+      <section class="content-grid two-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Vacancy Editor</h2>
+              <p>Create a new vacancy or click an existing one to update it.</p>
+            </div>
+          </div>
+          <form id="staff-career-form" class="content-grid">
+            <input id="staff-career-vacancy-id" type="hidden" />
+            <div class="field">
+              <label for="staff-career-title">Title</label>
+              <input id="staff-career-title" type="text" required />
+            </div>
+            <div class="field">
+              <label for="staff-career-department">Department</label>
+              <input id="staff-career-department" type="text" required />
+            </div>
+            <div class="field">
+              <label for="staff-career-location">Location</label>
+              <input id="staff-career-location" type="text" required />
+            </div>
+            <div class="field">
+              <label for="staff-career-employment-type">Employment type</label>
+              <input id="staff-career-employment-type" type="text" required />
+            </div>
+            <div class="field">
+              <label for="staff-career-schedule">Schedule</label>
+              <input id="staff-career-schedule" type="text" required />
+            </div>
+            <div class="field">
+              <label for="staff-career-salary-range">Salary range</label>
+              <input id="staff-career-salary-range" type="text" />
+            </div>
+            <div class="field">
+              <label for="staff-career-summary">Summary</label>
+              <textarea id="staff-career-summary" rows="4" required></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-career-description">Description</label>
+              <textarea id="staff-career-description" rows="6" required></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-career-responsibilities">Responsibilities</label>
+              <textarea id="staff-career-responsibilities" rows="6" required></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-career-requirements">Requirements</label>
+              <textarea id="staff-career-requirements" rows="6" required></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-career-benefits">Benefits</label>
+              <textarea id="staff-career-benefits" rows="5" required></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-career-status">Status</label>
+              <select id="staff-career-status">
+                <option value="OPEN">Open</option>
+                <option value="CLOSED">Closed</option>
+              </select>
+            </div>
+            <label class="checkbox-row" for="staff-career-featured">
+              <span class="checkbox-copy">
+                <span class="checkbox-title">Featured vacancy</span>
+                <span class="checkbox-description">
+                  Highlight this role so it stands out in the careers listing.
+                </span>
+              </span>
+              <input id="staff-career-featured" type="checkbox" />
+              <span class="checkbox-control" aria-hidden="true">
+                <span class="checkbox-thumb"></span>
+              </span>
+            </label>
+            <div class="button-row">
+              <button class="button" type="submit">Save Vacancy</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Current Vacancies</h2>
+              <p>Select a vacancy to load it back into the editor.</p>
+            </div>
+          </div>
+          <div id="staff-career-vacancies" class="conversation-list"></div>
+        </article>
+      </section>
+
+      <section class="panel margin-top-md">
+        <div class="panel-header">
+          <div>
+            <h2>Applications</h2>
+            <p>Review incoming applications and update each candidate status.</p>
+          </div>
+        </div>
+        <div id="staff-career-applications" class="vacancy-list"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324c"></script>
+  </body>
+</html>

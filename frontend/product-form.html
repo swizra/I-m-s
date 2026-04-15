@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <title>KEFE Admin | Product</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body data-requires-auth="true" data-allowed-roles="ADMIN">
+    <header class="site-header">
+      <div class="header-row">
+        <a class="brand" href="admin-dashboard.html">
+          <div class="brand-copy">
+            <strong>KEFE</strong>
+          </div>
+        </a>
+        <nav class="top-nav" data-nav-panel>
+          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="admin-orders.html">Orders</a>
+          <a href="admin-products.html">Products</a>
+          <a href="categories.html">Categories</a>
+          <a href="admin-support.html">Support</a>
+          <a href="admin-careers.html">Careers</a>
+          <a href="shop.html">Public Shop</a>
+          <button type="button" data-auth-logout data-auth-scope="admin">
+            Log Out
+          </button>
+        </nav>
+        <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="product-form-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Product</div>
+          <h1 id="product-form-title">Create Product</h1>
+          <p id="product-form-subtitle">
+            Add a new product to the catalog. Public availability depends on
+            the publish state and current stock quantity.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Core fields</strong>
+            <p>
+              Use the product name, SKU, barcode, price, stock, image,
+              category, and active flag to shape each self-care listing.
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Visibility</strong>
+            <p>
+              Only active products appear in the public shop. If stock is 0, the
+              shop shows the product as unavailable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <form id="product-form" class="content-grid">
+          <div class="field">
+            <label for="product-name">Product name</label>
+            <input id="product-name" type="text" maxlength="120" required />
+          </div>
+
+          <div class="field">
+            <label for="product-description">Description</label>
+            <textarea
+              id="product-description"
+              maxlength="1000"
+              required
+            ></textarea>
+          </div>
+
+          <div class="toolbar">
+            <div class="field">
+              <label for="product-price">Price (CHF)</label>
+              <input
+                id="product-price"
+                type="number"
+                min="0.01"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="product-stock-quantity">Stock quantity</label>
+              <input
+                id="product-stock-quantity"
+                type="number"
+                min="0"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="product-category">Category</label>
+              <select id="product-category" required></select>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="field">
+              <label for="product-sku">SKU</label>
+              <input id="product-sku" type="text" maxlength="64" required />
+            </div>
+            <div class="field">
+              <label for="product-barcode">Barcode</label>
+              <input id="product-barcode" type="text" maxlength="64" />
+            </div>
+            <div class="field">
+              <label for="product-restock-threshold">Restock threshold</label>
+              <input
+                id="product-restock-threshold"
+                type="number"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="field">
+              <label for="product-image-url">Image URL</label>
+              <input
+                id="product-image-url"
+                type="url"
+                maxlength="1000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="product-active">Publish in public shop</label>
+              <select id="product-active" required>
+                <option value="true">Yes, active</option>
+                <option value="false">No, hidden</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="button" type="submit">Save Product</button>
+            <a class="button-secondary" href="admin-products.html">Cancel</a>
+          </div>
+        </form>
+
+        <div id="product-form-message" class="message"></div>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323h"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/admin.js?v=20260323z"></script>
+  </body>
+</html>

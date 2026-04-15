@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KEFE | Customer Access</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a class="customer-account-link" href="account.html">My Orders</a>
+          <a href="login.html">Admin</a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Account</div>
+          <h1>Sign in or create your KEFE account.</h1>
+          <p>
+            Use your account to place orders, save your details, and review
+            past purchases from one place.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Local customer account</strong>
+            <p>
+              Username: <span class="inline-code">lina</span> | Password:
+              <span class="inline-code">customer123</span>
+            </p>
+          </div>
+          <div class="mini-panel">
+            <strong>Order tracking</strong>
+            <p>
+              Checkout from the cart and return later to view your order
+              history.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid two-column">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Sign In</h2>
+              <p>Use your customer username and password.</p>
+            </div>
+          </div>
+
+          <form id="customer-login-form" class="content-grid">
+            <div class="field">
+              <label for="customer-login-username">Username</label>
+              <input
+                id="customer-login-username"
+                type="text"
+                placeholder="Your username"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="customer-login-password">Password</label>
+              <input
+                id="customer-login-password"
+                type="password"
+                placeholder="Your password"
+                required
+              />
+            </div>
+            <div class="button-row">
+              <button class="button" type="submit">Sign In</button>
+              <a class="button-secondary" href="shop.html">Continue Shopping</a>
+            </div>
+          </form>
+          <div id="customer-login-message" class="message"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Create Account</h2>
+              <p>Open a KEFE customer account in one step.</p>
+            </div>
+          </div>
+
+          <form id="customer-register-form" class="content-grid">
+            <div class="field">
+              <label for="register-full-name">Full name</label>
+              <input
+                id="register-full-name"
+                type="text"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="register-username">Username</label>
+              <input
+                id="register-username"
+                type="text"
+                placeholder="Choose a username"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="register-email">Email</label>
+              <input
+                id="register-email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="register-password">Password</label>
+              <input
+                id="register-password"
+                type="password"
+                placeholder="At least 6 characters"
+                required
+              />
+            </div>
+            <button class="button" type="submit">Create Account</button>
+          </form>
+          <div id="customer-register-message" class="message"></div>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323i"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/customer.js?v=20260323z"></script>
+  </body>
+</html>

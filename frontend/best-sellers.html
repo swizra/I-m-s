@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <meta
+      name="description"
+      content="Browse KEFE best sellers, including customer favorites, high-performing products, and reliable starter picks."
+    />
+    <title>KEFE | Best Sellers</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a class="customer-account-link" href="account.html">My Orders</a>
+          <a class="customer-auth-link" href="customer-auth.html">Customer Login</a>
+          <a href="login.html">Admin</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="best-sellers-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Discover</div>
+          <h1>Best Sellers</h1>
+          <p>
+            Browse the most trusted starting points in the KEFE assortment, including
+            high-interest products, repeat-purchase favorites, and items customers return to
+            most often.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Products shown</strong>
+            <p id="best-sellers-total">0</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Top rated in list</strong>
+            <p id="best-sellers-top-rating">Loading...</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="best-sellers-message" class="message"></div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Customer Favorites</h2>
+            <p id="best-sellers-summary">Loading the strongest performers from the KEFE catalog.</p>
+          </div>
+          <a class="button-secondary" href="shop.html">Open Full Shop</a>
+        </div>
+        <div id="best-sellers-grid" class="product-grid"></div>
+      </section>
+
+      <section class="legal-stack margin-top-md">
+        <article class="panel">
+          <h2>Why customers use this page</h2>
+          <p>
+            Best Sellers helps reduce decision fatigue by highlighting products that perform
+            well with shoppers and represent the strongest entry points into the assortment.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>How best sellers are identified</h2>
+          <p>
+            A product may appear here because it consistently attracts strong order volume,
+            repeat customer interest, or above-average attention compared with similar products
+            in the same category.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>How to compare favorites</h2>
+          <ul>
+            <li>Check the product category to understand where it fits in the store.</li>
+            <li>Read the short description for daily use context.</li>
+            <li>Compare price, stock visibility, and related items before checkout.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Who this page is best for</h2>
+          <p>
+            Best Sellers works especially well for first-time shoppers, gift buyers, and anyone
+            who wants proven options before exploring more specialized products.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>Using this with the shop</h2>
+          <p>
+            Once a shopper identifies a likely favorite here, the full shop page becomes a more
+            useful place to compare alternatives, sort results, and refine the final choice.
+          </p>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323q"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324a"></script>
+  </body>
+</html>

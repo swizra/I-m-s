@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="inventory-api-base-url" content="" />
+    <meta
+      name="description"
+      content="Visit the KEFE Help Center for support topics covering accounts, orders, delivery, payments, and returns."
+    />
+    <title>KEFE | Help Center</title>
+    <link rel="stylesheet" href="css/style.css?v=20260324af" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-row">
+        <div class="brand-group">
+          <a class="brand" href="shop.html">
+            <div class="brand-copy">
+              <strong>KEFE</strong>
+            </div>
+          </a>
+        </div>
+
+        <nav class="top-nav public-nav" data-nav-panel>
+          <a href="shop.html">Shop</a>
+          <a class="customer-account-link" href="account.html">My Orders</a>
+          <a class="customer-auth-link" href="customer-auth.html">Customer Login</a>
+          <a href="login.html">Admin</a>
+        </nav>
+
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-backdrop" data-menu-close></div>
+
+    <main class="site-shell" id="help-center-page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Support</div>
+          <h1>Help Center</h1>
+          <p>
+            Start here for real customer support. You can open a help message, continue the
+            conversation with the KEFE team, and keep every reply connected to your customer
+            account.
+          </p>
+        </div>
+        <div class="hero-aside">
+          <div class="mini-panel">
+            <strong>Fastest self-service route</strong>
+            <p>Check My Orders first for the latest order status, address, and account details.</p>
+          </div>
+          <div class="mini-panel">
+            <strong>Support response target</strong>
+            <p>Most customer care requests are answered within 1 business day.</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="help-center-message" class="message"></div>
+      <div id="help-center-auth-state"></div>
+
+      <section id="help-center-workspace" class="content-grid two-column is-hidden">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Start a New Help Message</h2>
+              <p>Open a support conversation that the team can answer in the admin inbox.</p>
+            </div>
+          </div>
+          <form id="support-conversation-form" class="content-grid">
+            <div class="field">
+              <label for="support-subject">Subject</label>
+              <input id="support-subject" type="text" placeholder="What do you need help with?" required />
+            </div>
+            <div class="field">
+              <label for="support-category">Category</label>
+              <select id="support-category">
+                <option value="Orders">Orders</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Payments">Payments</option>
+                <option value="Returns">Returns</option>
+                <option value="Product advice">Product advice</option>
+                <option value="Account">Account</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="support-message">Message</label>
+              <textarea id="support-message" rows="6" data-auto-resize="false" placeholder="Describe the issue, include the order number if relevant, and tell us what you need." required></textarea>
+            </div>
+            <div class="button-row">
+              <button class="button" type="submit">Send Message</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Your Support Inbox</h2>
+              <p>All customer replies stay connected to the original conversation.</p>
+            </div>
+          </div>
+          <div id="support-conversation-list" class="conversation-list"></div>
+        </article>
+      </section>
+
+      <section class="panel margin-top-md">
+        <div class="panel-header">
+          <div>
+            <h2>Conversation Detail</h2>
+            <p>Reply to the selected conversation and keep the thread in one place.</p>
+          </div>
+        </div>
+        <div class="panel-divider" aria-hidden="true"></div>
+        <div id="support-conversation-detail"></div>
+        <form id="support-reply-form" class="content-grid is-hidden margin-top-md">
+          <div class="field">
+            <label for="support-reply-message">Reply</label>
+            <textarea id="support-reply-message" rows="9" data-auto-resize="false" placeholder="Write your reply to support."></textarea>
+          </div>
+          <div class="button-row">
+            <button class="button" type="submit">Send Reply</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="legal-stack margin-top-md">
+        <article class="panel">
+          <h2>Special request channels</h2>
+          <p>
+            Accessibility requests can be sent to
+            <span class="inline-code">accessibility@kefe.ch</span>, privacy questions to
+            <span class="inline-code">privacy@kefe.ch</span>, and security concerns to
+            <span class="inline-code">security@kefe.ch</span>.
+          </p>
+        </article>
+      </section>
+    </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-directory">
+      <div class="footer-brand-block">
+        <p class="footer-kicker">Self-care storefront, inventory tracking, and customer account flows in one place.</p>
+        <div class="footer-status-stack">
+          <p class="footer-status-line footer-server-status is-checking" data-footer-role="server">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-label">Checking server...</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-links footer-directory-links">
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Discover</button>
+          <div class="footer-link-list">
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="best-sellers.html">Best Sellers</a>
+            <a href="gift-guide.html">Gift Guide</a>
+            <a href="self-care-routines.html">Self-Care Routines</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Support</button>
+          <div class="footer-link-list">
+            <a href="faq.html">FAQ</a>
+            <a href="help-center.html">Help Center</a>
+            <a href="contact.html">Contact</a>
+            <a href="delivery-tracking.html">Delivery Tracking</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Policies</button>
+          <div class="footer-link-list">
+            <a href="shipping.html">Shipping</a>
+            <a href="returns.html">Returns</a>
+            <a href="payment-methods.html">Payment Methods</a>
+            <a href="store-policy.html">Store Policy</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Trust</button>
+          <div class="footer-link-list">
+            <a href="cookies.html">Cookies</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="security.html">Security</a>
+            <a href="ingredient-standards.html">Ingredient Standards</a>
+          </div>
+        </div>
+        <div class="footer-link-column">
+          <button class="footer-link-trigger" type="button">Company</button>
+          <div class="footer-link-list">
+            <a href="brand-story.html">Brand Story</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-copy">Copyright 2026-2026 KEFE. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/api.js?v=20260323z"></script>
+    <script src="js/auth.js?v=20260323q"></script>
+    <script src="js/site.js?v=20260324ac"></script>
+    <script src="js/pages.js?v=20260324a"></script>
+  </body>
+</html>
